@@ -174,9 +174,25 @@ class Ui_Form(object):
 
         # media area
         self.player = QtMultimedia.QMediaPlayer(self.video_widget)
-        self.player.setMedia(QUrl.fromLocalFile("C:\\Users\\bit\\Downloads\\cctv_store.mp4"))
+        self.vid_name = "C:/Users/bit/Downloads/out (2).mp4"
+        self.player.setMedia(QUrl.fromLocalFile(self.vid_name))
         self.player.setVideoOutput(self.vWidget)
 
+        self.img_label = QtWidgets.QLabel(self.heat_widget)
+        self.img_label.setGeometry(QtCore.QRect(10, 80, 640, 360))
+        self.img_label.setObjectName("img_label")
+        # self.img_label.setBackgroundRole(QtGui.QPalette.Base)
+        # self.img_label.setSizePolicy(QtWidgets.QSizePolicy.Ignored,
+        #                               QtWidgets.QSizePolicy.Ignored)
+        self.img_label.setScaledContents(True)
+
+        self.file_name = "C:/Users/bit/Anaconda3/envs/qt/qt/cat.jpg"
+
+        image = QtGui.QImage(self.file_name)
+        if image.isNull():
+            QtGui.QMessageBox.information(self, "Image Viewer",
+                                          "Cannot load %s." % self.file_name)
+        self.img_label.setPixmap(QtGui.QPixmap.fromImage(image))
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QtWidgets.QApplication.translate("Form", "Form", None, -1))
