@@ -16,7 +16,7 @@ from PySide2.QtWidgets import *
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(917, 663)
+        Form.showMaximized()
 
         self.menu_widget = QtWidgets.QWidget(Form)
         self.menu_widget.setGeometry(QtCore.QRect(10, 10, 131, 641))
